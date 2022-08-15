@@ -1,0 +1,25 @@
+<div class="my-1">
+  <h4 [ngClass]="{ 'text-decoration-line-through': !toDoItem.isActive }">
+    {{ toDoItem.title }}
+  </h4>
+  <p [ngClass]="{ 'text-decoration-line-through': !toDoItem.isActive }">
+    <span class="text-primary fw-bolder">Description:</span>
+    {{ toDoItem.description }}
+  </p>
+  <p>
+    <span class="text-primary fw-bolder">Status:</span> {{ toDoItem.isActive }}
+  </p>
+  <div class="mb-3 form-check">
+    <input
+      type="checkbox"
+      class="form-check-input"
+      id="toDoItem{{ index }}"
+      (click)="checkBoxClickHandler(toDoItem)"
+      [checked]="!toDoItem.isActive"
+    />
+    <label class="form-check-label" for="toDoItem{{ index }}">Done</label>
+  </div>
+  <button class="btn btn-sm btn-danger" (click)="onClick(toDoItem)">
+    Delete
+  </button>
+</div>

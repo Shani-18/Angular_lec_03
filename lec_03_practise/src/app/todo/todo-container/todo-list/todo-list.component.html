@@ -1,0 +1,14 @@
+<div *ngIf="toDosList && toDosList.length > 0">
+  <ul class="list-group mt-5">
+    <app-todo-list-item
+      *ngFor="let item of toDosList; index as index"
+      [toDoItem]="item"
+      [index]="index"
+      (ToDoDelete)="toDoDelete($event)"
+      (checkedStatus)="toggleStatus($event)"
+    ></app-todo-list-item>
+  </ul>
+</div>
+<div *ngIf="!toDosList || toDosList.length <= 0">
+  <h1>No Record(s) Found!</h1>
+</div>
